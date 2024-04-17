@@ -21,11 +21,11 @@ import { store } from '../store';
 
 <template>
         <div class="card-container">
-            <div v-if="movieInfo.poster_path != null" class="img-container">
-                <img class="movie-poster" :src="`https://image.tmdb.org/t/p/w342${movieInfo.poster_path}`" alt="">
-            </div>
-            <div v-else class="poster-missing">
-                <i class="fa-solid fa-images"></i>
+            <div class="img-container">
+                <img v-if="movieInfo.poster_path != null" class="movie-poster" :src="`https://image.tmdb.org/t/p/w342${movieInfo.poster_path}`" alt="">
+                <div v-else class="poster-missing">
+                    <i class="fa-solid fa-images"></i>
+                </div>
             </div>
             <div class="card-info">
                 <ul>
