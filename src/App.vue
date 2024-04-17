@@ -1,14 +1,42 @@
 <script>
+import axios from 'axios';
+import { store } from './store';
+import AppHeader from './components/AppHeader.vue';
+import AppMovieContainer from './components/AppMovieContainer.vue';
   export default {
-    
+    components: {
+      AppHeader,
+      AppMovieContainer
+    },
+    data() {
+      return {
+        store
+      };
+    },
+    methods: {
+      getMoviesFromApi() {
+        const myParams = {
+          api_key: '2168a3a30950804fa3dedc7749aa99c7',
+          query: store.searchedQuery
+        }
+        axios.get('https://api.themoviedb.org/3/search/movie', {
+          params: myParams
+        })
+        .then((response) => {
+          // console.log(response.data.results);
+          store.movies = response.data.results;
+        });
+      }
+    },
   }
 </script>
 
 
 <template>
-  <div>
-    Ciao Ciao
-  </div>
+ <AppHeader @searchPerfomed="getMoviesFromApi()"></AppHeader>
+ <main>
+  <AppMovieContainer></AppMovieContainer>
+ </main>
 </template>
 
 

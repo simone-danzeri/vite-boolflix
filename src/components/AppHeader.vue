@@ -1,0 +1,46 @@
+<script>
+    import { store } from '../store'
+    export default {
+        name: 'AppHeader',
+        data() {
+            return {
+                store
+            };
+        }
+    }
+</script>
+<template>
+    <div class="container">
+        <section class="header-container">
+            <div class="logo">
+                <h1>BOOLFLIX</h1>
+            </div>
+            <div class="search-section">
+                <input type="text" placeholder="Cerca i tuoi film e serie tv preferiti" v-model="store.searchedQuery">
+                <button @click="$emit('searchPerfomed')">Cerca</button>
+            </div>
+        </section>
+    </div>
+</template>
+
+
+<style scoped lang="scss">
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    
+    .search-section{
+
+        input{
+            padding: 10px;
+            width: 400px;
+        }
+
+        button{
+            padding: 10px;
+        }
+    }
+}
+</style>
