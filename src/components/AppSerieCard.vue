@@ -22,7 +22,10 @@ import { store } from '../store';
 <template>
         <div class="card-container">
             <div class="img-container">
-                <img class="movie-poster" :src="`https://image.tmdb.org/t/p/w342${serieInfo.poster_path}`" alt="">
+                <img v-if="serieInfo.poster_path != null" class="movie-poster" :src="`https://image.tmdb.org/t/p/w342${serieInfo.poster_path}`" alt="">
+                <div v-else class="poster-missing">
+                    <i class="fa-solid fa-images"></i>
+                </div>
             </div>
             <div class="card-info">
                 <ul>
@@ -45,8 +48,26 @@ import { store } from '../store';
     width: calc((100% / 5) - 10px);
     margin: 10px 5px;
 
-    .movie-poster{
-        width: 100%;
+    .img-container{
+        height: 395px;
+        .movie-poster{
+            width: 100%;
+            height: 100%;
+            
+        }
+    
+        .poster-missing{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+    
+            i{
+            font-size: 100px;
+            }
+        }
+
     }
 
     .card-info{
