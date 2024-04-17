@@ -1,10 +1,12 @@
 <script>
 import { store } from '../store';
 import AppMovieCard from './AppMovieCard.vue';
+import AppSerieCard from './AppSerieCard.vue';
     export default {
         name: 'AppMovieContainer',
         components: {
-                    AppMovieCard
+                    AppMovieCard,
+                    AppSerieCard
                 },
                 data() {
                     return {
@@ -16,13 +18,20 @@ import AppMovieCard from './AppMovieCard.vue';
 
 
 <template>
-    <section class="movies-list">
-        <div class="container">
+    <div class="container">
+        <section class="movies-list">
+            <h3>Ecco la lista dei film</h3>
             <div class="movies-card">
                 <AppMovieCard v-for="eachMovie in store.movies" :movieInfo="eachMovie"></AppMovieCard>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="series-list">
+            <h3>Ecco la lista delle serie tv</h3>
+            <div class="movies-card">
+                <AppSerieCard v-for="eachSerie in store.tvSeries" :serieInfo="eachSerie"></AppSerieCard>
+            </div>
+        </section>
+    </div>
 </template>
 
 
@@ -32,6 +41,13 @@ import AppMovieCard from './AppMovieCard.vue';
     .movies-card{
         display: flex;
         flex-wrap: wrap;
+    }
+    .movies-list{
+        background-color: beige;
+    }
+
+    .series-list{
+        background-color: aqua;
     }
 }
 </style>

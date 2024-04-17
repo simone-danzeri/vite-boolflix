@@ -1,9 +1,9 @@
 <script>
 import { store } from '../store';
     export default {
-        name: 'AppMovieCard',
+        name: 'AppSerieCard',
         props: {
-            movieInfo: Object
+            serieInfo: Object
         },
         data() {
             return {
@@ -24,14 +24,14 @@ import { store } from '../store';
             <div class="img-container"></div>
             <div class="card-info">
                 <ul>
-                    <li>Title: {{ movieInfo.title }}</li>
-                    <li>Original title: {{ movieInfo.original_title }}</li>
+                    <li>Title: {{ serieInfo.name }}</li>
+                    <li>Original title: {{ serieInfo.original_name }}</li>
                     <li>
                         <span>Original language: </span>
-                        <img class="flag" v-if="store.flagList.includes(movieInfo.original_language)" :src="this.getImageUrl(`../assets/img/${movieInfo.original_language}.png`)" alt="">
-                        <span v-else>{{ movieInfo.original_language }}</span>
+                        <img class="flag" v-if="store.flagList.includes(serieInfo.original_language)" :src="this.getImageUrl(`../assets/img/${serieInfo.original_language}.png`)" alt="">
+                        <span v-else>{{ serieInfo.original_language }}</span>
                     </li>
-                    <li>Vote: {{ movieInfo.vote_average }}</li>
+                    <li>Vote: {{ serieInfo.vote_average }}</li>
                 </ul>
             </div>
         </div>

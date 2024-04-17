@@ -26,6 +26,19 @@ import AppMovieContainer from './components/AppMovieContainer.vue';
           // console.log(response.data.results);
           store.movies = response.data.results;
         });
+      },
+      getTvSeriesFromApi() {
+        const myParams = {
+          api_key: '2168a3a30950804fa3dedc7749aa99c7',
+          query: store.searchedQuery
+        }
+        axios.get('https://api.themoviedb.org/3/search/tv' , {
+          params: myParams
+        })
+        .then((response) => {
+          // console.log(response.data.results);
+          store.tvSeries = response.data.results
+        });
       }
     },
   }
@@ -33,7 +46,7 @@ import AppMovieContainer from './components/AppMovieContainer.vue';
 
 
 <template>
- <AppHeader @searchPerfomed="getMoviesFromApi()"></AppHeader>
+ <AppHeader @searchPerfomed="getMoviesFromApi(), getTvSeriesFromApi()"></AppHeader>
  <main>
   <AppMovieContainer></AppMovieContainer>
  </main>
