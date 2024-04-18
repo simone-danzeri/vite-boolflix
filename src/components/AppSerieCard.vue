@@ -36,7 +36,37 @@ import { store } from '../store';
                         <img class="flag" v-if="store.flagList.includes(serieInfo.original_language)" :src="this.getImageUrl(`../assets/img/${serieInfo.original_language}.png`)" alt="">
                         <span v-else>{{ serieInfo.original_language }}</span>
                     </li>
-                    <li><span class="white">Vote: </span>{{ serieInfo.vote_average }}</li>
+                    <li>
+                        <span class="white">Vote: </span>
+                        <span v-if="(Math.round((serieInfo.vote_average) / 2)) > 4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((serieInfo.vote_average) / 2)) == 4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((serieInfo.vote_average) / 2)) == 3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((serieInfo.vote_average) / 2)) == 2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((serieInfo.vote_average) / 2)) == 1">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else>
+                            {{ Math.round((serieInfo.vote_average) / 2) }}
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>

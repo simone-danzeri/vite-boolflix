@@ -37,7 +37,37 @@ import { store } from '../store';
                         <img class="flag" v-if="store.flagList.includes(movieInfo.original_language)" :src="this.getImageUrl(`../assets/img/${movieInfo.original_language}.png`)" alt="">
                         <span v-else>{{ movieInfo.original_language }}</span>
                     </li>
-                    <li><span class="white">Vote: </span>{{ movieInfo.vote_average }}</li>
+                    <li>
+                        <span class="white">Vote: </span>
+                        <span v-if="(Math.round((movieInfo.vote_average) / 2)) > 4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((movieInfo.vote_average) / 2)) == 4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((movieInfo.vote_average) / 2)) == 3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((movieInfo.vote_average) / 2)) == 2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else-if="(Math.round((movieInfo.vote_average) / 2)) == 1">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span v-else>
+                            {{ Math.round((movieInfo.vote_average) / 2) }}
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>
