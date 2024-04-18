@@ -25,11 +25,17 @@
 
 
 <style scoped lang="scss">
+@use '../style/partials/variables' as *;
 .header-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 40px;
+
+    h1{
+        color: $primary-color;
+        font-size: 40px;
+    }
     
     .search-section{
 

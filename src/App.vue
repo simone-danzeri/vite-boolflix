@@ -56,12 +56,17 @@ import AppMovieContainer from './components/AppMovieContainer.vue';
 <style lang="scss">
 @use './style/generic';
 .white{
-  color: black;
+  color: whitesmoke;
   font-weight: bold;
 }
 
 ul li{
   list-style: none;
   padding: 4px 0;
+  color: whitesmoke;
+}
+
+i{
+  color: gold;
 }
 </style>

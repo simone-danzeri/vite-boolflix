@@ -68,6 +68,11 @@ import { store } from '../store';
                             {{ Math.round((movieInfo.vote_average) / 2) }}
                         </span>
                     </li>
+                    <li>
+                        <span class="white">Overview: </span>
+                        <span v-if="movieInfo.overview != ''" class="overview">{{ movieInfo.overview }}</span>
+                        <span v-else>Not Available ☹️</span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -78,9 +83,16 @@ import { store } from '../store';
 .card-container{
     width: calc((100% / 5) - 10px);
     margin: 10px 5px;
+    .card-info{
+    display: none;
+        .flag{
+            width: 30px;
+        }
+    }
 
     .img-container{
         height: 395px;
+
         .movie-poster{
             width: 100%;
             height: 100%;
@@ -96,15 +108,25 @@ import { store } from '../store';
     
             i{
             font-size: 100px;
+            color: whitesmoke;
             }
         }
 
     }
+}
+.card-container:hover{
     .card-info{
-
-        .flag{
-            width: 30px;
+        display: block;
+        border: 1px solid  whitesmoke;
+        height: 395px;
+        overflow-y: auto;
+        
+        li{
+            padding: 10px 6px;
         }
+    }
+    .img-container{
+        display: none;
     }
 }
 </style>

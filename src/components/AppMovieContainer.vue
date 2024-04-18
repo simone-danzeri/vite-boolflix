@@ -20,13 +20,13 @@ import AppSerieCard from './AppSerieCard.vue';
 <template>
     <div class="container">
         <section class="movies-list">
-            <h3>Ecco la lista dei film</h3>
+            <h3>MOVIES</h3>
             <div class="movies-card">
                 <AppMovieCard v-for="eachMovie in store.movies" :movieInfo="eachMovie"></AppMovieCard>
             </div>
         </section>
         <section class="series-list">
-            <h3>Ecco la lista delle serie tv</h3>
+            <h3>TV SERIES</h3>
             <div class="movies-card">
                 <AppSerieCard v-for="eachSerie in store.tvSeries" :serieInfo="eachSerie"></AppSerieCard>
             </div>
@@ -38,16 +38,21 @@ import AppSerieCard from './AppSerieCard.vue';
 <style scoped lang="scss">
 .container{
     
+    h3{
+        font-size: 20px;
+        color: white;
+        text-align: center;
+    }
     .movies-card{
         display: flex;
         flex-wrap: wrap;
     }
     .movies-list{
-        background-color: beige;
+        padding: 30px 0;
     }
 
     .series-list{
-        background-color: aqua;
+        padding: 30px 0;
     }
 }
 </style>
