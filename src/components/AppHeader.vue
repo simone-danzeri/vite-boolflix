@@ -42,10 +42,16 @@
         input{
             padding: 10px;
             width: 400px;
+            border: none;
         }
 
         button{
             padding: 10px;
+            border: none;
+            cursor: pointer;
+            border: 1px solid $primary-color;
+            background-color: antiquewhite;
+            
         }
     }
 }
